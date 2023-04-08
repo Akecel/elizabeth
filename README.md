@@ -5,7 +5,7 @@
 
 ## About Elizabeth
 
-Elizabeth is a MacOs application written in Go allowing the creation of complete Makefiles in a few clicks, and for any kind of use!
+Elizabeth is a MacOs application written in Go to create complete Makefiles in a few clicks and for any kind of use.
 
 ### Features
 
