@@ -34,9 +34,5 @@
     h1 {
       max-width: none;
     }
-
-    p {
-      max-width: none;
-    }
   }
 </style>
