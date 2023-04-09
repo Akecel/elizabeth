@@ -1,7 +1,7 @@
 <h1 align="center"> Elizabeth </h1>
 
 <p align="center">
-    <img alt="Elizabeth" src="build/appicon.png" width="90%"/>
+    <img alt="Elizabeth" src="build/appicon.png" width="50%"/>
 </p>
 
 ## About Elizabeth
