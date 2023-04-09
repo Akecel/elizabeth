@@ -5,7 +5,3 @@
 export function CreateMakefile() {
   return window['go']['backend']['App']['CreateMakefile']();
 }
-
-export function Greet(arg1) {
-  return window['go']['backend']['App']['Greet'](arg1);
-}
