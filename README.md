@@ -1,7 +1,8 @@
-<h1 align="center"> Elizabeth 📜</h1>
-<div align="center">
+<h1 align="center"> Elizabeth </h1>
 
-</div>
+<p align="center">
+    <img alt="Elizabeth" src="build/appicon.png" width="90%"/>
+</p>
 
 ## About Elizabeth
 
