@@ -31,7 +31,7 @@ func main() {
 		Frameless:         false,
 		StartHidden:       false,
 		HideWindowOnClose: false,
-		BackgroundColour:  &options.RGBA{17, 18, 25, 255},
+		BackgroundColour:  &options.RGBA{255, 255, 255, 255},
 		Assets:            assets,
 		LogLevel:          logger.DEBUG,
 		OnStartup:         app.startup,
@@ -51,7 +51,7 @@ func main() {
 		// MacOs platform specific options
 		Mac: &mac.Options{
             TitleBar: &mac.TitleBar{
-                TitlebarAppearsTransparent: true,
+                TitlebarAppearsTransparent: false,
                 HideTitle:                  false,
                 HideTitleBar:               false,
                 FullSizeContent:            false,
