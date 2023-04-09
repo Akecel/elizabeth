@@ -1,0 +1,19 @@
+.PHONY: help
+help: ## Provides help information on available commands.
+	@printf "Usage: make <command>\n\n"
+	@printf "Commands:\n"
+	@awk -F ':(.*)## ' '/^[a-zA-Z0-9%\\\/_.-]+:(.*)##/ { \
+	  printf "  \033[36m%-30s\033[0m %s\n", $$1, $$NF \
+	}' $(MAKEFILE_LIST)
+
+.PHONY: elizabeth/format
+elizabeth/format: ## Run gofmt.
+	@gofmt -s -w .
+
+.PHONY: elizabeth/build
+elizabeth/build: ## Build project.
+	@wails build
+
+.PHONY: elizabeth/dev
+elizabeth/dev: ## Launch project.
+	@wails dev

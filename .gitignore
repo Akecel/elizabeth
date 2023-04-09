@@ -1,4 +1,14 @@
+# Base ignore
+.vscode/
+.DS_Store
+.idea
+
+# Build
+build/bin
+frontend/dist
+
 # Binaries for programs and plugins
+dist/
 *.exe
 *.exe~
 *.dll
@@ -12,4 +22,7 @@
 *.out
 
 # Dependency directories (remove the comment below to include it)
-# vendor/
+vendor/
+node_modules/
+
+
