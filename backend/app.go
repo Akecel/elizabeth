@@ -16,13 +16,11 @@ func NewApp() *App {
 
 // Startup is called at application startup
 func (a *App) Startup(ctx context.Context) {
-	// Perform your setup here
 	a.ctx = ctx
 }
 
 // DOMReady is called after the front-end dom has been loaded
 func (a *App) DOMReady(ctx context.Context) {
-	// Add your action here
 	a.ctx = ctx
 }
 
