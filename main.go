@@ -25,22 +25,22 @@ func main() {
 
 	// Create application with options
 	err := wails.Run(&options.App{
-		Title:  "Elizabeth",
-		Width:  1024,
-		Height: 768,
+		Title:             "Elizabeth",
+		Width:             1024,
+		Height:            768,
 		DisableResize:     false,
 		Fullscreen:        false,
 		Frameless:         false,
 		StartHidden:       false,
 		HideWindowOnClose: false,
-		BackgroundColour:  &options.RGBA{255, 255, 255, 255},
+		BackgroundColour:  backend.SetBackgroundColor(),
 		Assets:            assets,
 		LogLevel:          logger.DEBUG,
 		OnStartup:         app.Startup,
 		OnDomReady:        app.DOMReady,
 		OnShutdown:        app.Shutdown,
 		CSSDragProperty:   "--wails-draggable",
-        CSSDragValue:      "drag",
+		CSSDragValue:      "drag",
 		Bind: []interface{}{
 			app,
 		},
@@ -52,23 +52,23 @@ func main() {
 		},
 		// MacOs platform specific options
 		Mac: &mac.Options{
-            TitleBar: &mac.TitleBar{
-                TitlebarAppearsTransparent: false,
-                HideTitle:                  false,
-                HideTitleBar:               false,
-                FullSizeContent:            false,
-                UseToolbar:                 false,
-                HideToolbarSeparator:       true,
-            },
-            Appearance:           mac.NSAppearanceNameDarkAqua,
-            WebviewIsTransparent: true,
-            WindowIsTranslucent:  false,
-            About: &mac.AboutInfo{
-                Title:   "Elizabeth",
-                Message: "© 2023 Akecel",
-                Icon:    icon,
-            },
-        },
+			TitleBar: &mac.TitleBar{
+				TitlebarAppearsTransparent: false,
+				HideTitle:                  false,
+				HideTitleBar:               false,
+				FullSizeContent:            false,
+				UseToolbar:                 false,
+				HideToolbarSeparator:       true,
+			},
+			Appearance:           mac.NSAppearanceNameDarkAqua,
+			WebviewIsTransparent: true,
+			WindowIsTranslucent:  false,
+			About: &mac.AboutInfo{
+				Title:   "Elizabeth",
+				Message: "© 2023 Akecel",
+				Icon:    icon,
+			},
+		},
 	})
 
 	if err != nil {

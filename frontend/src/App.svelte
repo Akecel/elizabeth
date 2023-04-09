@@ -3,12 +3,7 @@
 </script>
 
 <main>
-  <h1>
-    Elizabeth
-  </h1>
-
   <Makefile />
-
 </main>
 
 <style>
@@ -18,21 +13,9 @@
   }
 
   main {
-    text-align: center;
+    width: 100%; height: 100%;
+    color: #FFFFFF;
     padding: 1em;
     margin: 0 auto;
-  }
-
-  h1 {
-    @apply text-3xl font-bold underline text-blue-900;
-    line-height: 1.1;
-    margin: 2rem auto;
-    max-width: 14rem;
-  }
-
-  @media (min-width: 480px) {
-    h1 {
-      max-width: none;
-    }
   }
 </style>
