@@ -9,6 +9,8 @@ import (
 	"github.com/wailsapp/wails/v2/pkg/options"
 	"github.com/wailsapp/wails/v2/pkg/options/mac"
 	"github.com/wailsapp/wails/v2/pkg/options/windows"
+
+	"github.com/akecel/elizabeth/backend"
 )
 
 //go:embed frontend/dist
@@ -19,7 +21,7 @@ var icon []byte
 
 func main() {
 	// Create an instance of the app structure
-	app := NewApp()
+	app := backend.NewApp()
 
 	// Create application with options
 	err := wails.Run(&options.App{
@@ -34,9 +36,9 @@ func main() {
 		BackgroundColour:  &options.RGBA{255, 255, 255, 255},
 		Assets:            assets,
 		LogLevel:          logger.DEBUG,
-		OnStartup:         app.startup,
-		OnDomReady:        app.domReady,
-		OnShutdown:        app.shutdown,
+		OnStartup:         app.Startup,
+		OnDomReady:        app.DOMReady,
+		OnShutdown:        app.Shutdown,
 		CSSDragProperty:   "--wails-draggable",
         CSSDragValue:      "drag",
 		Bind: []interface{}{

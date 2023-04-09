@@ -6,7 +6,7 @@
   let greeting = "";
 
   function greet() {
-    window.go.main.App.Greet(name).then((result) => {
+    window.go.backend.App.Greet(name).then((result) => {
       greeting = result;
     });
   }
