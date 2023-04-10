@@ -24,6 +24,8 @@ func (a *App) GenerateMakefile(entries []MakefileEntry) string {
 	header, _ := ioutil.ReadFile("./assets/makefile_header.txt")
 	content.WriteString(fmt.Sprintf("%s\n\n", string(header)))
 
+	entries = append(entries, SetHelpCommand())
+
 	// Loop over the entries and add each one to the Makefile
 	for _, entry := range entries {
 		// Write the .PHONY target with the title and description
@@ -44,4 +46,22 @@ func (a *App) GenerateMakefile(entries []MakefileEntry) string {
 	}
 
 	return fmt.Sprintf("Makefile created : %v", os.Getenv("HOME")+"/Desktop/Makefile")
+}
+
+func SetHelpCommand() MakefileEntry {
+	return MakefileEntry{
+		Commands: []Command{
+			{
+				Command: `printf "Usage: make <command>\n\n"`,
+			}, {
+				Command: `printf "Commands:\n"`,
+			}, {
+				Command: `awk -F ':(.*)## ' '/^[a-zA-Z0-9%\\\/_.-]+:(.*)##/ { \
+					printf "  \033[36m%-30s\033[0m %s\n", $$1, $$NF \
+				}' $(MAKEFILE_LIST)`,
+			},
+		},
+		Title:       "help",
+		Description: "Provides help information on available commands.",
+	}
 }
