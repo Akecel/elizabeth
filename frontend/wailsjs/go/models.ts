@@ -1,8 +1,7 @@
 export namespace backend {
 	
 	export class MakefileEntry {
-	    prefix: string;
-	    value: string;
+	    command: string;
 	    title: string;
 	    description: string;
 	
@@ -12,8 +11,7 @@ export namespace backend {
 	
 	    constructor(source: any = {}) {
 	        if ('string' === typeof source) source = JSON.parse(source);
-	        this.prefix = source["prefix"];
-	        this.value = source["value"];
+	        this.command = source["command"];
 	        this.title = source["title"];
 	        this.description = source["description"];
 	    }

@@ -3,10 +3,10 @@
 
   let message = "";
 
-  let entries = [{ prefix: '', value: '', title: '', description: '' }];
+  let entries = [{ command: '', title: '', description: '' }];
 
   function addEntry() {
-    entries = [...entries, { prefix: '', value: '', title: '', description: '' }];
+    entries = [...entries, { command: '', title: '', description: '' }];
   }
 
   function generateMakefile() {
@@ -28,7 +28,7 @@
   {/each}
 </div>
 
-<button class="button border-white border rounded-md p-2" on:click={addEntry}>Add a command</button>
+<button class="button border-white border rounded-md p-2" on:click={addEntry}>Add a Makefile command</button>
 
 <hr class="my-8">
 
@@ -43,5 +43,11 @@
     font-size: 2em;
     font-weight: 600;
     margin: 0;
+  }
+
+  button:hover {
+    transition: 0.2s;
+    background-color: #FFFFFF;
+    color: #0C0D1D;
   }
 </style>
