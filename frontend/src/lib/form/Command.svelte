@@ -3,7 +3,6 @@
     import { writable } from 'svelte/store';
     
     export let entry;
-    export let index;
     
     let commands = writable(entry.commands);
     let title = writable(entry.title);
@@ -26,7 +25,7 @@
     });
 </script>
 
-<h2>Makefile command {index + 1}</h2>
+<h2 class="my-8 text-lg">Makefile command :</h2>
 
 <div class="flex flex-row space-x-4 mb-4">
     <div class="basis-1/3">
@@ -43,10 +42,10 @@
     </div>
 </div>
 
-{#each entry.commands as command, index}
+{#each entry.commands as command, i}
     <div class="mb-4">
         <label class="block text-gray-100 text-sm font-bold mb-2" for="command">
-            Command {index + 1}:
+            Command :
         </label>
         <input bind:value={command.command} class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight" id="command" type="text" placeholder="npm install">
     </div>

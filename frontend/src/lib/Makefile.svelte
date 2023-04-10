@@ -20,11 +20,11 @@
 <h1>Makefile Generator</h1>
 <p>Create complete Makefiles in a few clicks.</p>
 
-<hr class="my-8">
+<hr class="mt-8">
 
-<div class="m-8 py-4">
-  {#each entries as entry, index}
-    <Command {entry} {index}/>
+<div class="pb-8">
+  {#each entries as entry, i}
+    <Command {entry}/>
   {/each}
 </div>
 
