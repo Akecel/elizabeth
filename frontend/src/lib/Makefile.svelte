@@ -3,10 +3,10 @@
 
   let message = "";
 
-  let entries = [{ command: '', title: '', description: '' }];
+  let entries = [{title: '', description: '', commands: [{ command: '' }] }];
 
   function addEntry() {
-    entries = [...entries, { command: '', title: '', description: '' }];
+    entries = [...entries, {title: '', description: '', commands: [{ command: '' }] }];
   }
 
   function generateMakefile() {
@@ -23,8 +23,8 @@
 <hr class="my-8">
 
 <div class="m-8 py-4">
-  {#each entries as entry, i}
-    <Command {entry} />
+  {#each entries as entry, index}
+    <Command {entry} {index}/>
   {/each}
 </div>
 

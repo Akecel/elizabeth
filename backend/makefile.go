@@ -7,15 +7,20 @@ import (
 	"strings"
 )
 
+type Command struct {
+	Command string `json:"command"`
+}
+
 type MakefileEntry struct {
-	Command     string `json:"command"`
-	Title       string `json:"title"`
-	Description string `json:"description"`
+	Commands    []Command `json:"commands"`
+	Title       string    `json:"title"`
+	Description string    `json:"description"`
 }
 
 func (a *App) GenerateMakefile(entries []MakefileEntry) string {
 	var content strings.Builder
 
+	// Write the header of the Makefile
 	header, _ := ioutil.ReadFile("./assets/makefile_header.txt")
 	content.WriteString(fmt.Sprintf("%s\n\n", string(header)))
 
@@ -24,8 +29,12 @@ func (a *App) GenerateMakefile(entries []MakefileEntry) string {
 		// Write the .PHONY target with the title and description
 		content.WriteString(fmt.Sprintf(".PHONY: %s\n%s: ## %s.\n", entry.Title, entry.Title, entry.Description))
 
-		// Write the command to execute with the prefix and value
-		content.WriteString(fmt.Sprintf("\t@%s\n\n", entry.Command))
+		// Write the different commands
+		for _, cmd := range entry.Commands {
+			content.WriteString(fmt.Sprintf("\t@%s\n", cmd.Command))
+		}
+
+		content.WriteString("\n")
 	}
 
 	// Write the Makefile to disk
